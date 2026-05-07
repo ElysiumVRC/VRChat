@@ -451,3 +451,65 @@ header h1{
         font-size:0.75rem;
     }
 }
+
+/* =========================
+   戻るボタン
+========================= */
+
+.back-button{
+
+    align-self:flex-start;
+
+    padding:
+        10px
+        18px;
+
+    border-radius:12px;
+
+    border:
+        1px solid cyan;
+
+    color:cyan;
+
+    text-decoration:none;
+
+    font-size:0.9rem;
+
+    letter-spacing:1px;
+
+    transition:0.3s;
+
+    background:
+        rgba(0,255,255,0.05);
+
+    box-shadow:
+        0 0 10px rgba(0,255,255,0.15);
+}
+
+.back-button:hover{
+
+    background:cyan;
+
+    color:black;
+
+    transform:
+        translateX(-3px);
+
+    box-shadow:
+        0 0 10px cyan,
+        0 0 25px cyan;
+}
+
+/* スマホ */
+
+@media(max-width:768px){
+
+    .back-button{
+
+        font-size:0.8rem;
+
+        padding:
+            8px
+            14px;
+    }
+}
