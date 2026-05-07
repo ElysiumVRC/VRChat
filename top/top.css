@@ -1,77 +1,292 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background: #000;
-    color: white;
-    font-family: Arial, sans-serif;
-
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
+html,
+body{
+    width:100%;
+    height:100%;
 }
 
-.container {
-    text-align: center;
+body{
+
+    background:#0d1117;
+
+    color:white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow:hidden;
+
+    position:relative;
 }
 
-.title {
-    font-size: 4rem;
-    margin-bottom: 60px;
+/* =========================
+   背景
+========================= */
 
-    letter-spacing: 8px;
+.background-animation{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0,255,255,0.15),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,0,255,0.12),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(0,100,255,0.15),
+            transparent 25%
+        );
+
+    animation:
+        bgMove 12s ease-in-out infinite alternate;
+}
+
+.background-animation::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        );
+
+    background-size:40px 40px;
+
+    opacity:0.3;
+}
+
+@keyframes bgMove{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-40px);
+    }
+}
+
+/* =========================
+   Main
+========================= */
+
+.main-container{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+}
+
+/* =========================
+   Card
+========================= */
+
+.top-card{
+
+    width:100%;
+    max-width:650px;
+
+    padding:
+        60px
+        40px;
+
+    border-radius:28px;
+
+    background:
+        rgba(22,27,34,0.92);
+
+    border:
+        1px solid #30363d;
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.08);
+
+    transition:0.35s;
+}
+
+.top-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(0,255,255,0.2),
+        0 0 40px rgba(0,255,255,0.12);
+}
+
+/* =========================
+   タイトル
+========================= */
+
+.top-card h1{
+
+    font-size:4rem;
+
+    letter-spacing:10px;
+
+    margin-bottom:20px;
 
     text-shadow:
-        0 0 5px white,
-        0 0 10px white,
-        0 0 20px white;
+        0 0 5px cyan,
+        0 0 15px cyan,
+        0 0 30px cyan;
 }
 
-.button-area {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
+.subtitle{
+
+    opacity:0.75;
+
+    margin-bottom:50px;
+
+    letter-spacing:2px;
+
+    font-size:1rem;
 }
 
-.menu-button {
-    width: 220px;
-    height: 70px;
+/* =========================
+   ボタン
+========================= */
 
-    border: 2px solid white;
-    color: white;
+.menu-area{
 
-    text-decoration: none;
+    display:flex;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
 
-    font-size: 1.2rem;
-    letter-spacing: 3px;
+    gap:25px;
 
-    transition: 0.3s;
+    flex-wrap:wrap;
+}
+
+.menu-button{
+
+    min-width:220px;
+
+    padding:
+        18px
+        28px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:cyan;
+
+    font-size:1rem;
+
+    letter-spacing:3px;
+
+    border:
+        1px solid cyan;
+
+    background:
+        rgba(0,255,255,0.05);
+
+    transition:0.3s;
 
     box-shadow:
-        0 0 5px white,
-        0 0 10px rgba(255,255,255,0.5);
+        0 0 10px rgba(0,255,255,0.15);
 }
 
-.menu-button:hover {
-    background: white;
-    color: black;
+.menu-button:hover{
 
-    transform: scale(1.05);
+    background:cyan;
+
+    color:black;
+
+    transform:
+        translateY(-3px);
 
     box-shadow:
-        0 0 10px white,
-        0 0 20px white,
-        0 0 40px white;
+        0 0 10px cyan,
+        0 0 30px cyan;
+}
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media(max-width:768px){
+
+    .top-card{
+
+        padding:
+            45px
+            25px;
+    }
+
+    .top-card h1{
+
+        font-size:2.5rem;
+
+        letter-spacing:5px;
+    }
+
+    .subtitle{
+
+        font-size:0.9rem;
+
+        margin-bottom:35px;
+    }
+
+    .menu-button{
+
+        width:100%;
+
+        min-width:unset;
+    }
+}
+
+@media(max-width:480px){
+
+    .top-card h1{
+
+        font-size:2rem;
+    }
+
+    .subtitle{
+
+        font-size:0.8rem;
+    }
 }
