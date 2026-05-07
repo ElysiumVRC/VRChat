@@ -1,1 +1,15 @@
+[
+    {
+        "name": "Cove",
+        "url": "https://vrchat.com/home/world/wrld_70e25e5d-5eb4-4798-8d5c-1ed4d18cc110/info",
+        "image": "../assets/images/world1.png",
+        "tags": ["chill", "sunset", "sleep"]
+    },
 
+    {
+        "name": "Silent Stella",
+        "url": "https://vrchat.com/home/world/wrld_4d1045e5-f62d-4a24-8b50-96ded1aaaddd/info",
+        "image": "../assets/images/world2.png",
+        "tags": ["chill", "night","sleep"]
+    }
+]
