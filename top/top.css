@@ -27,7 +27,7 @@ body{
 }
 
 /* =========================
-   背景
+   背景アニメーション
 ========================= */
 
 .background-animation{
@@ -47,7 +47,7 @@ body{
 
         radial-gradient(
             circle at 80% 30%,
-            rgba(255,0,255,0.12),
+            rgba(0,255,255,0.08),
             transparent 20%
         ),
 
@@ -115,13 +115,13 @@ body{
 }
 
 /* =========================
-   Card
+   メインカード
 ========================= */
 
 .top-card{
 
     width:100%;
-    max-width:650px;
+    max-width:720px;
 
     padding:
         60px
@@ -139,10 +139,10 @@ body{
 
     text-align:center;
 
+    transition:0.35s;
+
     box-shadow:
         0 0 20px rgba(0,255,255,0.08);
-
-    transition:0.35s;
 }
 
 .top-card:hover{
@@ -167,6 +167,8 @@ body{
 
     margin-bottom:20px;
 
+    color:white;
+
     text-shadow:
         0 0 5px cyan,
         0 0 15px cyan,
@@ -185,31 +187,41 @@ body{
 }
 
 /* =========================
-   ボタン
+   ボタンエリア
 ========================= */
 
 .menu-area{
 
     display:flex;
 
+    flex-direction:row;
+
     justify-content:center;
 
-    gap:25px;
+    align-items:center;
 
-    flex-wrap:wrap;
+    gap:40px;
+
+    flex-wrap:nowrap;
 }
+
+/* =========================
+   ボタン
+========================= */
 
 .menu-button{
 
-    min-width:220px;
+    width:240px;
 
     padding:
-        18px
-        28px;
+        20px
+        30px;
 
     border-radius:18px;
 
     text-decoration:none;
+
+    text-align:center;
 
     color:cyan;
 
@@ -244,7 +256,28 @@ body{
 }
 
 /* =========================
-   スマホ対応
+   スクロールバー
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0d1117;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#30363d;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:cyan;
+}
+
+/* =========================
+   タブレット対応
 ========================= */
 
 @media(max-width:768px){
@@ -270,23 +303,54 @@ body{
         margin-bottom:35px;
     }
 
+    .menu-area{
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
     .menu-button{
 
         width:100%;
-
-        min-width:unset;
     }
 }
 
+/* =========================
+   スマホ対応
+========================= */
+
 @media(max-width:480px){
+
+    .top-card{
+
+        border-radius:20px;
+
+        padding:
+            35px
+            20px;
+    }
 
     .top-card h1{
 
         font-size:2rem;
+
+        letter-spacing:3px;
     }
 
     .subtitle{
 
         font-size:0.8rem;
+
+        margin-bottom:30px;
+    }
+
+    .menu-button{
+
+        font-size:0.9rem;
+
+        padding:
+            16px
+            20px;
     }
 }
