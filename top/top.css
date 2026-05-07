@@ -1,356 +1,44 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* 全体 */
+.header {
+    text-align: center;
+    padding: 20px 0;
 }
 
-html,
-body{
-    width:100%;
-    height:100%;
+/* VRChatタイトル（光る） */
+.title {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    
+    /* 光らせる */
+    text-shadow: 
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+
+    margin-bottom: 15px;
 }
 
-body{
-
-    background:#0d1117;
-
-    color:white;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overflow:hidden;
-
-    position:relative;
+/* メニュー横並び */
+.menu-area {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* 間隔 */
 }
 
-/* =========================
-   背景アニメーション
-========================= */
-
-.background-animation{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-2;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(0,255,255,0.15),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(0,255,255,0.08),
-            transparent 20%
-        ),
-
-        radial-gradient(
-            circle at 50% 80%,
-            rgba(0,100,255,0.15),
-            transparent 25%
-        );
-
-    animation:
-        bgMove 12s ease-in-out infinite alternate;
+/* ボタン */
+.menu-button {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    
+    transition: 0.2s;
 }
 
-.background-animation::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.03) 1px,
-            transparent 1px
-        );
-
-    background-size:40px 40px;
-
-    opacity:0.3;
-}
-
-@keyframes bgMove{
-
-    from{
-        transform:translateY(0px);
-    }
-
-    to{
-        transform:translateY(-40px);
-    }
-}
-
-/* =========================
-   Main
-========================= */
-
-.main-container{
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    padding:20px;
-}
-
-/* =========================
-   メインカード
-========================= */
-
-.top-card{
-
-    width:100%;
-    max-width:720px;
-
-    padding:
-        60px
-        40px;
-
-    border-radius:28px;
-
-    background:
-        rgba(22,27,34,0.92);
-
-    border:
-        1px solid #30363d;
-
-    backdrop-filter:blur(10px);
-
-    text-align:center;
-
-    transition:0.35s;
-
-    box-shadow:
-        0 0 20px rgba(0,255,255,0.08);
-}
-
-.top-card:hover{
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 0 20px rgba(0,255,255,0.2),
-        0 0 40px rgba(0,255,255,0.12);
-}
-
-/* =========================
-   タイトル
-========================= */
-
-.top-card h1{
-
-    font-size:4rem;
-
-    letter-spacing:10px;
-
-    margin-bottom:20px;
-
-    color:white;
-
-    text-shadow:
-        0 0 5px cyan,
-        0 0 15px cyan,
-        0 0 30px cyan;
-}
-
-.subtitle{
-
-    opacity:0.75;
-
-    margin-bottom:50px;
-
-    letter-spacing:2px;
-
-    font-size:1rem;
-}
-
-/* =========================
-   ボタンエリア
-========================= */
-
-.menu-area{
-
-    display:flex;
-
-    flex-direction:row;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:40px;
-
-    flex-wrap:nowrap;
-}
-
-/* =========================
-   ボタン
-========================= */
-
-.menu-button{
-
-    width:240px;
-
-    padding:
-        20px
-        30px;
-
-    border-radius:18px;
-
-    text-decoration:none;
-
-    text-align:center;
-
-    color:cyan;
-
-    font-size:1rem;
-
-    letter-spacing:3px;
-
-    border:
-        1px solid cyan;
-
-    background:
-        rgba(0,255,255,0.05);
-
-    transition:0.3s;
-
-    box-shadow:
-        0 0 10px rgba(0,255,255,0.15);
-}
-
-.menu-button:hover{
-
-    background:cyan;
-
-    color:black;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 0 10px cyan,
-        0 0 30px cyan;
-}
-
-/* =========================
-   スクロールバー
-========================= */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:#0d1117;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#30363d;
-    border-radius:999px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background:cyan;
-}
-
-/* =========================
-   タブレット対応
-========================= */
-
-@media(max-width:768px){
-
-    .top-card{
-
-        padding:
-            45px
-            25px;
-    }
-
-    .top-card h1{
-
-        font-size:2.5rem;
-
-        letter-spacing:5px;
-    }
-
-    .subtitle{
-
-        font-size:0.9rem;
-
-        margin-bottom:35px;
-    }
-
-    .menu-area{
-
-        flex-direction:column;
-
-        gap:20px;
-    }
-
-    .menu-button{
-
-        width:100%;
-    }
-}
-
-/* =========================
-   スマホ対応
-========================= */
-
-@media(max-width:480px){
-
-    .top-card{
-
-        border-radius:20px;
-
-        padding:
-            35px
-            20px;
-    }
-
-    .top-card h1{
-
-        font-size:2rem;
-
-        letter-spacing:3px;
-    }
-
-    .subtitle{
-
-        font-size:0.8rem;
-
-        margin-bottom:30px;
-    }
-
-    .menu-button{
-
-        font-size:0.9rem;
-
-        padding:
-            16px
-            20px;
-    }
+/* ホバー */
+.menu-button:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
 }
